@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testimonials - Perry Belcher</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7fafc;
+            color: #2d3748;
+            line-height: 1.6;
+            padding-top: 70px;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            height: 70px;
+            background: #1a365d;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 4px 20px rgba(26, 54, 93, 0.15);
+        }
+
+        .logo {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            background: #2c5282;
+            transform: translateY(-2px);
+        }
+
+        .nav-links a.active {
+            background: #3182ce;
+            font-weight: 600;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);
+            color: white;
+            text-align: center;
+            padding: 4rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23ffffff" fill-opacity="0.1"><polygon points="36 34 24 34 30 24"/></g></g></svg>') repeat;
+            opacity: 0.1;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            font-weight: 400;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(26, 54, 93, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(49, 130, 206, 0.1);
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(26, 54, 93, 0.15);
+        }
+
+        .testimonial-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+            color: #2d3748;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #3182ce, #2c5282);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+
+        .author-info h4 {
+            font-weight: 600;
+            color: #1a365d;
+            margin-bottom: 0.25rem;
+        }
+
+        .author-info p {
+            color: #718096;
+            font-size: 0.9rem;
+        }
+
+        .stats-section {
+            background: white;
+            padding: 4rem 2rem;
+            margin: 4rem 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 2rem;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #3182ce;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #3182ce, #2c5282);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1a365d;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1a365d;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: #718096;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .featured-testimonial {
+            background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);
+            color: white;
+            padding: 4rem 2rem;
+            margin: 4rem 0;
+            border-radius: 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .featured-testimonial::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 8rem;
+            opacity: 0.2;
+            font-family: serif;
+        }
+
+        .featured-content {
+            font-size: 1.5rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            font-style: italic;
+            position: relative;
+            z-index: 2;
+        }
+
+        .featured-author {
+            font-size: 1.2rem;
+            font-weight: 600;
+            opacity: 0.9;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #f7fafc 0%, #e2e8f0 100%);
+            padding: 4rem 2rem;
+            text-align: center;
+            margin: 4rem 0;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #3182ce, #2c5282);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(49, 130, 206, 0.3);
+            margin-top: 2rem;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(49, 130, 206, 0.4);
+        }
+
+        .footer {
+            background: #1a365d;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .footer p {
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .featured-content {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="logo">Perry Belcher</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="speaking.html">Speaking</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="insights.html">Insights</a></li>
+            <li><a href="testimonials.html" class="active">Testimonials</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>Success Stories</h1>
+            <p>Discover how industry leaders have transformed their businesses with proven marketing strategies that generate billions in revenue.</p>
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="section-header">
+            <h2>What Industry Leaders Say</h2>
+            <p>From startup founders to Fortune 500 executives, see how AI-enhanced marketing strategies have revolutionized their approach to customer acquisition and revenue growth.</p>
+        </div>
+
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    "Perry's AI-enhanced marketing framework completely transformed our customer acquisition strategy. We saw a 340% increase in qualified leads within the first quarter of implementation. His ability to simplify complex automation processes is unmatched."
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar">SM</div>
+                    <div class="author-info">
+                        <h4>Sarah Mitchell</h4>
+                        <p>CEO, TechFlow Solutions</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    "The copy optimization techniques Perry taught us increased our conversion rates by 180%. His understanding of customer psychology and AI-driven personalization is phenomenal. Every headline now hooks our audience instantly."
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar">MR</div>
+                    <div class="author-info">
+                        <h4>Marcus Rodriguez</h4>
+                        <p>Marketing Director, Global Ventures Inc.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    "Perry helped us engineer an irresistible product that customers literally couldn't say no to. Our pre-launch generated $2.3M in reservations. His product positioning strategies are pure gold."
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar">JC</div>
+                    <div class="author-info">
+                        <h4>Jennifer Chen</h4>
+                        <p>Founder, Innovation Labs</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    "Working with Perry on our automation strategy saved us 40 hours per week while increasing customer lifetime value by 250%. His large language model implementations are revolutionary for modern customer journeys."
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar">DR</div>
+                    <div class="author-info">
+                        <h4>David Richardson</h4>
+                        <p>VP Operations, ScaleUp Dynamics</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    "Perry positioned our brand as the go-to expert in sustainable technology. Within 6 months, we became the industry thought leader with 500% growth in speaking opportunities and strategic partnerships."
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar">LT</div>
+                    <div class="author-info">
+                        <h4>Lisa Thompson</h4>
+                        <p>Chief Strategy Officer, EcoTech Innovations</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    "The strategies Perry shared turned our struggling startup into a $50M company in 18 months. His insights on scaling with AI-driven customer acquisition are absolutely game-changing."
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar">RT</div>
+                    <div class="author-info">
+                        <h4>Robert Turner</h4>
+                        <p>Co-Founder, NextGen Digital</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Results That Speak Volumes</h2>
+                <p>These numbers represent real transformations achieved through proven AI-enhanced marketing strategies.</p>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">$2.8B+</div>
+                    <div class="stat-label">Revenue Generated</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Companies Transformed</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">340%</div>
+                    <div class="stat-label">Average ROI Increase</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">98%</div>
+                    <div class="stat-label">Client Satisfaction</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="featured-testimonial">
+            <div class="featured-content">
+                "Perry Belcher doesn't just teach marketing—he transforms entire business philosophies. His AI-enhanced strategies helped us achieve what we thought was impossible: turning a commodity product into a premium brand that customers fight to buy. The man truly lives up to his nickname, 'The Billion Dollar Man.'"
+            </div>
+            <div class="featured-author">
+                — Amanda Foster, CEO of Premium Brands Collective
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Ready to Write Your Success Story?</h2>
+                <p>Join hundreds of industry leaders who have transformed their businesses with proven AI-enhanced marketing strategies.</p>
+            </div>
+            <a href="contact.html" class="cta-button">Start Your Transformation</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Perry Belcher. All rights reserved. Turning Offers Into Empires Through AI-Enhanced Marketing.</p>
+        </div>
+    </footer>
+</body>
+</html>
