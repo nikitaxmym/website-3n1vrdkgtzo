@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - Perry Belcher | AI-Enhanced Marketing Expertise</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #2d3748;
+            background-color: #f7fafc;
+            padding-top: 70px;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 70px;
+            background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 2rem;
+            box-shadow: 0 4px 20px rgba(26, 54, 93, 0.3);
+        }
+
+        .logo {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            position: relative;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6px;
+            height: 6px;
+            background: #3182ce;
+            border-radius: 50%;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, #1a365d 0%, #2c5282 50%, #3182ce 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #ffffff, #e2e8f0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            border: 1px solid rgba(49, 130, 206, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #3182ce, #2c5282, #1a365d);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #3182ce, #2c5282);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1a365d;
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: #4a5568;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-features li {
+            padding: 0.5rem 0;
+            color: #2d3748;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .service-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #3182ce;
+            font-weight: 600;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #3182ce, #2c5282);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(49, 130, 206, 0.4);
+        }
+
+        .methodology-section {
+            background: white;
+            padding: 4rem 2rem;
+            margin: 2rem 0;
+        }
+
+        .methodology-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .methodology-content h2 {
+            font-size: 2.5rem;
+            color: #1a365d;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .methodology-content p {
+            font-size: 1.2rem;
+            color: #4a5568;
+            margin-bottom: 3rem;
+        }
+
+        .methodology-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .step-card {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #f7fafc, #edf2f7);
+            transition: transform 0.3s ease;
+        }
+
+        .step-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #3182ce, #2c5282);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin: 0 auto 1rem auto;
+        }
+
+        .testimonial-section {
+            background: linear-gradient(135deg, #edf2f7, #e2e8f0);
+            padding: 4rem 2rem;
+        }
+
+        .testimonial-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            background: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .testimonial-text {
+            font-size: 1.3rem;
+            color: #2d3748;
+            font-style: italic;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: #1a365d;
+            font-size: 1.1rem;
+        }
+
+        .footer {
+            background: #1a365d;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .mobile-menu {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: block;
+                background: none;
+                border: none;
+                color: white;
+                font-size: 1.5rem;
+                cursor: pointer;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                padding: 2rem 1rem;
+            }
+
+            .methodology-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .navbar {
+                padding: 0 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="logo">Perry Belcher</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="speaking.html">Speaking</a></li>
+            <li><a href="services.html" class="active">Services</a></li>
+            <li><a href="insights.html">Insights</a></li>
+            <li><a href="testimonials.html">Testimonials</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <button class="mobile-menu">☰</button>
+    </nav>
+
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>Transform Your Business</h1>
+            <p>Leverage proven strategies and AI-enhanced marketing to turn your offers into empires. Get the expertise that has generated billions in sales.</p>
+        </div>
+    </section>
+
+    <section class="services-grid">
+        <div class="service-card">
+            <div class="service-icon">🚀</div>
+            <h3>Product Engineering & Strategy</h3>
+            <p>Learn how to engineer irresistible products that people have to buy. Master the psychology of desire and create offers that convert at unprecedented rates.</p>
+            <ul class="service-features">
+                <li>Product-market fit optimization</li>
+                <li>Value proposition development</li>
+                <li>Pricing strategy frameworks</li>
+                <li>Customer psychology mapping</li>
+                <li>Offer stack architecture</li>
+            </ul>
+            <a href="contact.html" class="cta-button">Learn More</a>
+        </div>
+
+        <div class="service-card">
+            <div class="service-icon">🤖</div>
+            <h3>AI-Enhanced Marketing Automation</h3>
+            <p>Leverage automation and large language models for modern customer journeys. Build systems that scale your marketing while maintaining personal connection.</p>
+            <ul class="service-features">
+                <li>AI-powered customer segmentation</li>
+                <li>Automated funnel optimization</li>
+                <li>Personalization at scale</li>
+                <li>Predictive analytics implementation</li>
+                <li>Conversion rate optimization</li>
+            </ul>
+            <a href="contact.html" class="cta-button">Get Started</a>
+        </div>
+
+        <div class="service-card">
+            <div class="service-icon">✍️</div>
+            <h3>High-Converting Copy & Content</h3>
+            <p>Master copy that converts, headlines that hook, and strategies that scale. Get the copywriting secrets behind billions in sales from "The Billion Dollar Man."</p>
+            <ul class="service-features">
+                <li>Direct response copywriting</li>
+                <li>Email sequence development</li>
+                <li>Sales page optimization</li>
+                <li>Headline testing strategies</li>
+                <li>Storytelling frameworks</li>
+            </ul>
+            <a href="contact.html" class="cta-button">Discover More</a>
+        </div>
+
+        <div class="service-card">
+            <div class="service-icon">👑</div>
+            <h3>Authority & Brand Positioning</h3>
+            <p>Position yourself or your brand as the go-to expert in any niche. Build unshakeable authority that attracts premium opportunities and top-tier clients.</p>
+            <ul class="service-features">
+                <li>Thought leadership strategy</li>
+                <li>Content authority framework</li>
+                <li>Speaking opportunity development</li>
+                <li>Media presence optimization</li>
+                <li>Expert positioning tactics</li>
+            </ul>
+            <a href="contact.html" class="cta-button">Start Building</a>
+        </div>
+
+        <div class="service-card">
+            <div class="service-icon">📈</div>
+            <h3>Business Growth Consulting</h3>
+            <p>One-on-one strategic consulting to scale your business exponentially. Get personalized guidance from the co-founder of DigitalMarketer and Traffic & Conversion Summit.</p>
+            <ul class="service-features">
+                <li>Revenue optimization audits</li>
+                <li>Growth strategy development</li>
+                <li>Team scaling frameworks</li>
+                <li>Market expansion planning</li>
+                <li>Exit strategy preparation</li>
+            </ul>
+            <a href="contact.html" class="cta-button">Book Consultation</a>
+        </div>
+
+        <div class="service-card">
+            <div class="service-icon">🎯</div>
+            <h3>Traffic & Conversion Mastery</h3>
+            <p>Master the art and science of driving qualified traffic and converting it into loyal customers. Proven methodologies from the Traffic & Conversion Summit founder.</p>
+            <ul class="service-features">
+                <li>Multi-channel traffic strategies</li>
+                <li>Conversion funnel optimization</li>
+                <li>Customer lifetime value maximization</li>
+                <li>Attribution modeling</li>
+                <li>ROI tracking systems</li>
+            </ul>
+            <a href="contact.html" class="cta-button">Master Traffic</a>
+        </div>
+    </section>
+
+    <section class="methodology-section">
+        <div class="methodology-content">
+            <h2>The Perry Belcher Method</h2>
+            <p>A proven 4-step framework that has generated billions in sales across hundreds of industries. This systematic approach transforms complex marketing challenges into clear, actionable strategies.</p>
+            
+            <div class="methodology-steps">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>Analyze & Audit</h3>
+                    <p>Deep dive into your current marketing ecosystem, identifying gaps and opportunities for exponential growth.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>Strategize & Plan</h3>
+                    <p>Develop a comprehensive strategy tailored to your unique market position and growth objectives.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Implement & Optimize</h3>
+                    <p>Execute the strategy with precision, continuously testing and optimizing for maximum performance.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h3>Scale & Systematize</h3>
+                    <p>Build scalable systems that maintain growth momentum while reducing your hands-on involvement.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonial-section">
+        <div class="testimonial-content">
+            <p class="testimonial-text">"Perry's strategies didn't just increase our revenue—they transformed our entire approach to marketing. His insights on customer psychology and AI automation helped us achieve a 340% increase in conversions within six months."</p>
+            <div class="testimonial-author">Sarah Mitchell, CEO of TechScale Solutions</div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2024 Perry Belcher. All rights reserved. | Turning Offers Into Empires Through AI-Enhanced Marketing</p>
+    </footer>
+</body>
+</html>
