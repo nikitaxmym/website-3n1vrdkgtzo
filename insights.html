@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insights - Perry Belcher | Turning Offers Into Empires Through AI-Enhanced Marketing</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f7fafc;
+            color: #2d3748;
+            line-height: 1.6;
+            padding-top: 70px;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 70px;
+            background: #1a365d;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            height: 40px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            background: #3182ce;
+            transform: translateY(-2px);
+        }
+
+        .nav-links a.active {
+            background: #3182ce;
+            color: white;
+        }
+
+        .mobile-menu {
+            display: none;
+            background: white;
+            color: #1a365d;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, white, #3182ce);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .insights-grid {
+            padding: 4rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1a365d;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: #2d3748;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .article-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        }
+
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: #3182ce;
+        }
+
+        .article-category {
+            background: #3182ce;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .article-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1a365d;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .article-card p {
+            color: #2d3748;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .read-more {
+            color: #3182ce;
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .read-more:hover {
+            color: #1a365d;
+            transform: translateX(5px);
+        }
+
+        .featured-insights {
+            background: white;
+            padding: 4rem 0;
+            margin: 4rem 0;
+        }
+
+        .featured-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .featured-content h3 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #1a365d;
+            margin-bottom: 1rem;
+        }
+
+        .featured-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .featured-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 1.5rem;
+            background: #f7fafc;
+            border-radius: 12px;
+            border-left: 4px solid #3182ce;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1a365d;
+            display: block;
+        }
+
+        .stat-label {
+            color: #2d3748;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .newsletter-section {
+            background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .newsletter-section h3 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .newsletter-section p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+            gap: 1rem;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 1rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        .newsletter-form button {
+            padding: 1rem 2rem;
+            background: #3182ce;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-form button:hover {
+            background: #2c5282;
+            transform: translateY(-2px);
+        }
+
+        .footer {
+            background: #1a365d;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .articles-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .featured-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .featured-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <img src="https://perrybelcher.com/wp-content/uploads/2025/05/Perry-Belcher-Logo-2025.svg" alt="Perry Belcher" class="logo">
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="speaking.html">Speaking</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="insights.html" class="active">Insights</a></li>
+            <li><a href="testimonials.html">Testimonials</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <button class="mobile-menu">☰</button>
+    </nav>
+
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Marketing Insights</h1>
+                <p>Billion-dollar strategies, AI-enhanced tactics, and proven frameworks from the mind behind DigitalMarketer</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="insights-grid">
+        <div class="container">
+            <div class="section-header">
+                <h2>Latest Insights</h2>
+                <p>Strategic marketing wisdom from the co-founder of DigitalMarketer and Traffic & Conversion Summit</p>
+            </div>
+
+            <div class="articles-grid">
+                <article class="article-card">
+                    <div class="article-meta">
+                        <span class="article-category">AI Marketing</span>
+                        <span>March 15, 2024</span>
+                    </div>
+                    <h3>How AI is Transforming Customer Journey Mapping</h3>
+                    <p>Discover how artificial intelligence is revolutionizing the way we understand and optimize customer touchpoints, leading to conversion rates that seemed impossible just years ago.</p>
+                    <a href="#" class="read-more">Read Full Article →</a>
+                </article>
+
+                <article class="article-card">
+                    <div class="article-meta">
+                        <span class="article-category">Conversion Strategy</span>
+                        <span>March 10, 2024</span>
+                    </div>
+                    <h3>The Empire Framework: From Offer to Ecosystem</h3>
+                    <p>Learn the systematic approach that turns single offers into multi-million dollar business ecosystems. This is the blueprint behind some of the most successful digital empires.</p>
+                    <a href="#" class="read-more">Read Full Article →</a>
+                </article>
+
+                <article class="article-card">
+                    <div class="article-meta">
+                        <span class="article-category">Copywriting</span>
+                        <span>March 5, 2024</span>
+                    </div>
+                    <h3>The Psychology Behind Billion-Dollar Copy</h3>
+                    <p>Dive deep into the psychological triggers and frameworks that have generated billions in sales. Master the art of persuasion through strategic copywriting techniques.</p>
+                    <a href="#" class="read-more">Read Full Article →</a>
+                </article>
+
+                <article class="article-card">
+                    <div class="article-meta">
+                        <span class="article-category">Traffic Generation</span>
+                        <span>February 28, 2024</span>
+                    </div>
+                    <h3>Scaling Traffic Without Breaking the Bank</h3>
+                    <p>Proven strategies for generating massive traffic volumes while maintaining profitability. Learn the secrets behind Traffic & Conversion Summit's growth methodology.</p>
+                    <a href="#" class="read-more">Read Full Article →</a>
+                </article>
+
+                <article class="article-card">
+                    <div class="article-meta">
+                        <span class="article-category">Business Strategy</span>
+                        <span>February 20, 2024</span>
+                    </div>
+                    <h3>Building Systems That Scale to 8-Figures</h3>
+                    <p>The operational frameworks and mindset shifts required to build businesses that can scale beyond the founder's daily involvement while maintaining growth momentum.</p>
+                    <a href="#" class="read-more">Read Full Article →</a>
+                </article>
+
+                <article class="article-card">
+                    <div class="article-meta">
+                        <span class="article-category">Digital Marketing</span>
+                        <span>February 15, 2024</span>
+                    </div>
+                    <h3>The Future of Digital Marketing Attribution</h3>
+                    <p>As privacy regulations reshape digital marketing, discover new approaches to understanding customer behavior and optimizing marketing spend for maximum ROI.</p>
+                    <a href="#" class="read-more">Read Full Article →</a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="featured-insights">
+        <div class="container">
+            <div class="featured-grid">
+                <div class="featured-content">
+                    <h3>The Billion Dollar Playbook</h3>
+                    <p>After generating billions in sales through strategic marketing, I've distilled the core principles that separate successful campaigns from failures. These insights come from real-world testing across thousands of campaigns.</p>
+                    <p>From the early days of building DigitalMarketer to scaling Traffic & Conversion Summit into the premier marketing event, these strategies have been battle-tested in the trenches of high-stakes marketing.</p>
+                    <div class="featured-stats">
+                        <div class="stat-card">
+                            <span class="stat-number">$2B+</span>
+                            <span class="stat-label">Generated in Sales</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">10K+</span>
+                            <span class="stat-label">Campaigns Launched</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">500+</span>
+                            <span class="stat-label">Companies Scaled</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">15+</span>
+                            <span class="stat-label">Years Experience</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="featured-content">
+                    <h3>AI-Enhanced Marketing Mastery</h3>
+                    <p>The integration of artificial intelligence into marketing isn't just about automation—it's about amplifying human insight with machine precision. I've been at the forefront of this revolution, implementing AI tools and strategies that have transformed how we approach customer acquisition and retention.</p>
+                    <p>These aren't theoretical concepts. Every strategy shared comes from hands-on implementation in real businesses with real results. The future of marketing is here, and it's more powerful than most realize.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="newsletter-section">
+        <div class="container">
+            <h3>Get Weekly Marketing Insights</h3>
+            <p>Join thousands of marketers getting actionable strategies delivered directly to their inbox</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Enter your email address" required>
+                <button type="submit">Subscribe Now</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Perry Belcher. All rights reserved. | Turning Offers Into Empires Through AI-Enhanced Marketing</p>
+        </div>
+    </footer>
+</body>
+</html>
