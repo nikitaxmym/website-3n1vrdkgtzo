@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Perry Belcher | AI-Enhanced Marketing Expert</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #2d3748;
+            background-color: #f7fafc;
+            padding-top: 70px;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 70px;
+            background: #1a365d;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #3182ce;
+        }
+
+        .nav-links a.active {
+            color: #3182ce;
+        }
+
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #3182ce;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .contact-content {
+            padding: 4rem 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .contact-info {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .contact-form {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1a365d;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: #f7fafc;
+            border-radius: 8px;
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #3182ce, #2c5282);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            color: white;
+            font-weight: bold;
+        }
+
+        .contact-details h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+            color: #1a365d;
+        }
+
+        .contact-details p {
+            color: #2d3748;
+            font-size: 0.95rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #1a365d;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: #3182ce;
+            box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.1);
+        }
+
+        textarea.form-control {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #3182ce, #2c5282);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(49, 130, 206, 0.3);
+        }
+
+        .speaking-cta {
+            background: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .cta-card {
+            background: linear-gradient(135deg, #1a365d, #2c5282);
+            color: white;
+            padding: 3rem;
+            border-radius: 12px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .cta-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+            text-align: left;
+        }
+
+        .cta-feature {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1rem;
+            border-radius: 8px;
+        }
+
+        .cta-feature-icon {
+            width: 30px;
+            height: 30px;
+            background: #3182ce;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            color: white;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .footer {
+            background: #1a365d;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .mobile-menu {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: block;
+                background: none;
+                border: none;
+                color: white;
+                font-size: 1.5rem;
+                cursor: pointer;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                padding: 2rem 0;
+            }
+
+            .contact-info, .contact-form {
+                padding: 1.5rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .cta-title {
+                font-size: 2rem;
+            }
+
+            .cta-features {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .cta-feature {
+                justify-content: center;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar {
+                padding: 0 1rem;
+            }
+
+            .hero-title {
+                font-size: 1.75rem;
+            }
+
+            .contact-info, .contact-form {
+                padding: 1rem;
+            }
+
+            .cta-card {
+                padding: 2rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="logo">Perry Belcher</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="speaking.html">Speaking</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="insights.html">Insights</a></li>
+            <li><a href="testimonials.html">Testimonials</a></li>
+            <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+        <button class="mobile-menu">☰</button>
+    </nav>
+
+    <section class="hero-section">
+        <div class="container">
+            <h1 class="hero-title">Get In Touch</h1>
+            <p class="hero-subtitle">Ready to transform your marketing? Let's discuss how AI-enhanced strategies can turn your offers into empires.</p>
+        </div>
+    </section>
+
+    <section class="contact-content">
+        <div class="container" style="display: contents;">
+            <div class="contact-info">
+                <h2 class="section-title">Let's Connect</h2>
+                <p style="margin-bottom: 2rem; color: #2d3748; line-height: 1.6;">As the co-founder of DigitalMarketer and creator of Traffic & Conversion Summit, I'm here to help you engineer irresistible products and scale your business through proven marketing strategies.</p>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">📧</div>
+                    <div class="contact-details">
+                        <h3>Email</h3>
+                        <p>perry@perrybelcher.com</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">📱</div>
+                    <div class="contact-details">
+                        <h3>Phone</h3>
+                        <p>Available by appointment</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">🎤</div>
+                    <div class="contact-details">
+                        <h3>Speaking Inquiries</h3>
+                        <p>Book Perry for your next event</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">💼</div>
+                    <div class="contact-details">
+                        <h3>Business Hours</h3>
+                        <p>Monday - Friday: 9:00 AM - 5:00 PM CST</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">⚡</div>
+                    <div class="contact-details">
+                        <h3>Response Time</h3>
+                        <p>Within 24-48 hours</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <h2 class="section-title">Send a Message</h2>
+                <form>
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" class="form-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" class="form-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="company">Company/Organization</label>
+                        <input type="text" id="company" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Subject *</label>
+                        <select id="subject" class="form-control" required>
+                            <option value="">Select a topic</option>
+                            <option value="speaking">Speaking Engagement</option>
+                            <option value="consulting">Business Consulting</option>
+                            <option value="partnership">Partnership Opportunity</option>
+                            <option value="media">Media Interview</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="budget">Project Budget Range</label>
+                        <select id="budget" class="form-control">
+                            <option value="">Select budget range</option>
+                            <option value="under-10k">Under $10,000</option>
+                            <option value="10k-50k">$10,000 - $50,000</option>
+                            <option value="50k-100k">$50,000 - $100,000</option>
+                            <option value="100k-plus">$100,000+</option>
+                            <option value="tbd">To be determined</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" class="form-control" placeholder="Tell me about your project, goals, and how I can help you turn your offers into empires..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="speaking-cta">
+        <div class="container">
+            <div class="cta-card">
+                <h2 class="cta-title">Ready to Book Perry?</h2>
+                <p class="cta-subtitle">Transform your event with insights from "The Billion Dollar Man"</p>
+                
+                <div class="cta-features">
+                    <div class="cta-feature">
+                        <div class="cta-feature-icon">🎯</div>
+                        <div>
+                            <strong>Irresistible Product Engineering</strong><br>
+                            Learn to create products people have to buy
+                        </div>
+                    </div>
+                    
+                    <div class="cta-feature">
+                        <div class="cta-feature-icon">🤖</div>
+                        <div>
+                            <strong>AI-Enhanced Marketing</strong><br>
+                            Leverage automation for modern customer journeys
+                        </div>
+                    </div>
+                    
+                    <div class="cta-feature">
+                        <div class="cta-feature-icon">✍️</div>
+                        <div>
+                            <strong>Copy That Converts</strong><br>
+                            Headlines that hook and strategies that scale
+                        </div>
+                    </div>
+                    
+                    <div class="cta-feature">
+                        <div class="cta-feature-icon">👑</div>
+                        <div>
+                            <strong>Expert Positioning</strong><br>
+                            Become the go-to authority in your niche
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Perry Belcher. All rights reserved. | Turning Offers Into Empires Through AI-Enhanced Marketing</p>
+        </div>
+    </footer>
+</body>
+</html>
